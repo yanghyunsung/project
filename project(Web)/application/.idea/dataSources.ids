@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - exercise@localhost" uuid="8c475397-0d65-4f5e-9629-6f0d5271cbfa">
+    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="exercise"/>
+    <table name="battle_record" schema="" catalog="exercise" type="TABLE">
+      <column name="battle_record_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="fuser_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lmc6rWsIO2ajOybkCDrsojtmLg="/>
+      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7Iuc7J6RIOuCoOynnA=="/>
+      <column name="end_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7KKF66OMIOuCoOynnA=="/>
+      <column name="result" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="6rKw6rO8"/>
+      <primary-key name="PRIMARY" columns="battle_record_numb,user_numb,fuser_numb"/>
+    </table>
+    <table name="board" schema="" catalog="exercise" type="TABLE">
+      <column name="article_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="board_category" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lm07YWM6rOg66as"/>
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="6riAIOygnOuqqQ=="/>
+      <column name="content" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1" remarks="6riAIOuCtOyaqQ=="/>
+      <primary-key name="PRIMARY" columns="article_numb"/>
+      <foreign-key name="board_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="challenge_complete_list" schema="" catalog="exercise" type="TABLE">
+      <column name="challenge_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="64+E7KCEIOqzvOygnCDrsojtmLg="/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="clear_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7JmE66OMIOuCoOynnA=="/>
+      <primary-key name="PRIMARY" columns="challenge_numb,user_numb"/>
+      <foreign-key name="challenge_complete_list_ibfk_1" columns="challenge_numb" ref-table="challenge_list" ref-schema="" ref-catalog="exercise" ref-columns="challenge_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="challenge_complete_list_ibfk_2" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="challenge_list" schema="" catalog="exercise" type="TABLE">
+      <column name="challenge_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="64+E7KCEIOqzvOygnCDrsojtmLg="/>
+      <column name="challenge_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="64+E7KCEIOqzvOygnCDsoJzrqqk="/>
+      <column name="challenge_condition" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1" remarks="64+E7KCEIOqzvOygnCDsobDqsbQ="/>
+      <primary-key name="PRIMARY" columns="challenge_numb"/>
+      <exported-key name="challenge_complete_list_ibfk_1" table="challenge_complete_list" schema="" catalog="exercise" columns="challenge_numb"/>
+    </table>
+    <table name="check_point" schema="" catalog="exercise" type="TABLE">
+      <column name="check_point_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="point_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="position_check" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="check_point_index"/>
+      <foreign-key name="check_point___fk" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="user_position_record___fk" table="user_position_record" schema="" catalog="exercise" columns="check_point_index"/>
+      <index name="check_point___fk" unique="false" columns="exercise_numb"/>
+      <index name="check_point_J___fk" unique="false" columns="exercise_numb"/>
+    </table>
+    <table name="check_point_j" schema="" catalog="exercise" type="TABLE">
+      <column name="check_point_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="point_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="position_check" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="check_point_index"/>
+      <foreign-key name="check_point_j_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_info" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA==" autoIncrement="true"/>
+      <column name="exercise_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7Jq064+ZIOydtOumhA=="/>
+      <column name="exercise_info" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOu2gOychCDrsojtmLg="/>
+      <column name="kinematic_coefficient" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="exercise_numb"/>
+      <exported-key name="check_point___fk" table="check_point" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="check_point_j_ibfk_1" table="check_point_j" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="exercise_movie_info_ibfk_1" table="exercise_movie_info" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="exercise_record_ibfk_2" table="exercise_record" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="exercise_repeat_numb_ibfk_1" table="exercise_repeat_numb" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="rank_ibfk_1" table="rank" schema="" catalog="exercise" columns="exercise_numb"/>
+    </table>
+    <table name="exercise_info_j" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="exercise_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="exercise_info" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kinematic_coefficient" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="exercise_numb"/>
+    </table>
+    <table name="exercise_movie_info" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA=="/>
+      <column name="movie_order" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="64+Z7JiB7IOBIOyInOyEnA=="/>
+      <column name="movie_path" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1" remarks="64+Z7JiB7IOBIOqyveuhnA=="/>
+      <primary-key name="PRIMARY" columns="exercise_numb,movie_order"/>
+      <foreign-key name="exercise_movie_info_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_order" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="numb_set_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="exercise_order" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="routine_list_index,numb_set_index"/>
+      <foreign-key name="exercise_order_ibfk_1" columns="routine_list_index" ref-table="routine_list" ref-schema="" ref-catalog="exercise" ref-columns="routine_list_index" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_point" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOu2gOychCDrsojtmLg=" autoIncrement="true"/>
+      <column name="exercise_point_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7Jq064+ZIOu2gOychCDsnbTrpoQ="/>
+      <primary-key name="PRIMARY" columns="exercise_point_numb"/>
+    </table>
+    <table name="exercise_point_j" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="exercise_point_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="exercise_point_numb"/>
+    </table>
+    <table name="exercise_record" schema="" catalog="exercise" type="TABLE">
+      <column name="ex_record_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQ67KI7Zi4"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+Z67KI7Zi4"/>
+      <column name="target_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66qp7ZGcIOyatOuPmSDtmp/siJg="/>
+      <column name="clear_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7IiY7ZaJIOyatOuPmSDtmp/siJg="/>
+      <column name="exercise_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7Jq064+ZIOuCoOynnA=="/>
+      <primary-key name="PRIMARY" columns="ex_record_numb,user_numb,exercise_numb"/>
+      <foreign-key name="exercise_record_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="exercise_record_ibfk_2" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_repeat_numb" schema="" catalog="exercise" type="TABLE">
+      <column name="numb_set_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Zqf7IiYIOyEpOyglSDsnbjrjbHsiqQ=" autoIncrement="true"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA=="/>
+      <column name="number_of_set" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7IS47Yq4IOyImA=="/>
+      <column name="number_of_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="MeyEuO2KuCDri7kg7Zqf7IiY"/>
+      <primary-key name="PRIMARY" columns="numb_set_index,exercise_numb"/>
+      <foreign-key name="exercise_repeat_numb_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="friends" schema="" catalog="exercise" type="TABLE">
+      <column name="f_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="fuser_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lmc6rWsIO2ajOybkCDrsojtmLg="/>
+      <primary-key name="PRIMARY" columns="f_index,user_numb"/>
+      <foreign-key name="friends_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="kcal" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kcal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kcal_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="user_numb,kcal_date"/>
+      <foreign-key name="kcal_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="pic" schema="" catalog="exercise" type="TABLE">
+      <column name="pic_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="pic_path" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7IKs7KeEIOqyveuhnA=="/>
+      <column name="shoot_date" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7LSs7JiBIOuCoOynnA=="/>
+      <primary-key name="PRIMARY" columns="pic_numb,user_numb"/>
+    </table>
+    <table name="rank" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA=="/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQ67KI7Zi4"/>
+      <column name="rank" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="656t7YK5"/>
+      <primary-key name="PRIMARY" columns="exercise_numb,user_numb"/>
+      <foreign-key name="rank_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="rank_ibfk_2" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="routine_info" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66Oo7Yu0IOumrOyKpO2KuCDsnbjrjbHsiqQ=" autoIncrement="true"/>
+      <column name="diffculty" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="64Kc7J2064+E"/>
+      <column name="routine_category" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7Lm07YWM6rOg66as"/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <foreign-key name="routine_info_ibfk_1" columns="routine_list_index" ref-table="routine_list" ref-schema="" ref-catalog="exercise" ref-columns="routine_list_index" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="routine_info_j" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="diffculty" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="routine_category" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <foreign-key name="routine_info_j_ibfk_1" columns="routine_list_index" ref-table="routine_list_j" ref-schema="" ref-catalog="exercise" ref-columns="routine_list_index" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="routine_list" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66Oo7Yu0IOumrOyKpO2KuCDsnbjrjbHsiqQ=" autoIncrement="true"/>
+      <column name="routine_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="66Oo7Yu0IOydtOumhA=="/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <exported-key name="exercise_order_ibfk_1" table="exercise_order" schema="" catalog="exercise" columns="routine_list_index"/>
+      <exported-key name="routine_info_ibfk_1" table="routine_info" schema="" catalog="exercise" columns="routine_list_index"/>
+    </table>
+    <table name="routine_list_j" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="routine_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <exported-key name="routine_info_j_ibfk_1" table="routine_info_j" schema="" catalog="exercise" columns="routine_list_index"/>
+    </table>
+    <table name="user" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA==" autoIncrement="true"/>
+      <column name="id" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7JWE7J2065SU"/>
+      <column name="password" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" remarks="67mE67CA67KI7Zi4"/>
+      <column name="mail" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7J2066mU7J28"/>
+      <column name="nick" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="64uJ64Sk7J6E"/>
+      <column name="height" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="7YKk"/>
+      <column name="level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ==" remarks="66CI67Ko"/>
+      <column name="pic" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_numb"/>
+      <exported-key name="board_ibfk_1" table="board" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="challenge_complete_list_ibfk_2" table="challenge_complete_list" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="exercise_record_ibfk_1" table="exercise_record" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="friends_ibfk_1" table="friends" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="kcal_ibfk_1" table="kcal" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="rank_ibfk_2" table="rank" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="user_position_record_ibfk_1" table="user_position_record" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="user_routine_info___fk" table="user_routine_info" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="weight_ibfk_1" table="weight" schema="" catalog="exercise" columns="user_numb"/>
+    </table>
+    <table name="user_position_record" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="position_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lm07Jq07Yq4"/>
+      <column name="position_check_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="6riw66GdIOuCoOynnA=="/>
+      <column name="check_point_index" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="position_record_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="position_record_index"/>
+      <foreign-key name="user_position_record___fk" columns="check_point_index" ref-table="check_point" ref-schema="" ref-catalog="exercise" ref-columns="check_point_index" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_position_record_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_position_record___fk" unique="false" columns="check_point_index"/>
+    </table>
+    <table name="user_routine_info" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="routine_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="routine_list_numb"/>
+      <foreign-key name="user_routine_info___fk" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_routine_info___fk" unique="false" columns="user_numb"/>
+    </table>
+    <table name="weight" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQ67KI7Zi4"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="6riw66GdIOuCoOynnA=="/>
+      <column name="weight" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66q466y06rKM"/>
+      <primary-key name="PRIMARY" columns="user_numb,date"/>
+      <foreign-key name="weight_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - exercise@jycom.asuscomm.com" uuid="66dd644f-aada-41ef-aca3-da09b5cec581">
+    <database-info product="MySQL" version="5.7.11" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="exercise"/>
+    <table name="battle_record" schema="" catalog="exercise" type="TABLE">
+      <column name="battle_record_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="fuser_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lmc6rWsIO2ajOybkCDrsojtmLg="/>
+      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7Iuc7J6RIOuCoOynnA=="/>
+      <column name="end_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7KKF66OMIOuCoOynnA=="/>
+      <column name="result" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="6rKw6rO8"/>
+      <primary-key name="PRIMARY" columns="battle_record_numb,user_numb,fuser_numb"/>
+    </table>
+    <table name="board" schema="" catalog="exercise" type="TABLE">
+      <column name="article_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="board_category" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lm07YWM6rOg66as"/>
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="6riAIOygnOuqqQ=="/>
+      <column name="content" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1" remarks="6riAIOuCtOyaqQ=="/>
+      <primary-key name="PRIMARY" columns="article_numb"/>
+      <foreign-key name="board_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="challenge_complete_list" schema="" catalog="exercise" type="TABLE">
+      <column name="challenge_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="64+E7KCEIOqzvOygnCDrsojtmLg="/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="clear_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7JmE66OMIOuCoOynnA=="/>
+      <primary-key name="PRIMARY" columns="challenge_numb,user_numb"/>
+      <foreign-key name="challenge_complete_list_ibfk_1" columns="challenge_numb" ref-table="challenge_list" ref-schema="" ref-catalog="exercise" ref-columns="challenge_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="challenge_complete_list_ibfk_2" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="challenge_list" schema="" catalog="exercise" type="TABLE">
+      <column name="challenge_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="64+E7KCEIOqzvOygnCDrsojtmLg="/>
+      <column name="challenge_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="64+E7KCEIOqzvOygnCDsoJzrqqk="/>
+      <column name="challenge_condition" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1" remarks="64+E7KCEIOqzvOygnCDsobDqsbQ="/>
+      <primary-key name="PRIMARY" columns="challenge_numb"/>
+      <exported-key name="challenge_complete_list_ibfk_1" table="challenge_complete_list" schema="" catalog="exercise" columns="challenge_numb"/>
+    </table>
+    <table name="check_point" schema="" catalog="exercise" type="TABLE">
+      <column name="check_point_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="point_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="position_check" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="check_point_index"/>
+      <foreign-key name="check_point___fk" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="user_position_record___fk" table="user_position_record" schema="" catalog="exercise" columns="check_point_index"/>
+      <index name="check_point___fk" unique="false" columns="exercise_numb"/>
+      <index name="check_point_J___fk" unique="false" columns="exercise_numb"/>
+    </table>
+    <table name="check_point_j" schema="" catalog="exercise" type="TABLE">
+      <column name="check_point_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="point_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="position_check" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="check_point_index"/>
+      <foreign-key name="check_point_j_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_info" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA==" autoIncrement="true"/>
+      <column name="exercise_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7Jq064+ZIOydtOumhA=="/>
+      <column name="exercise_info" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOu2gOychCDrsojtmLg="/>
+      <column name="kinematic_coefficient" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="exercise_numb"/>
+      <exported-key name="check_point___fk" table="check_point" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="check_point_j_ibfk_1" table="check_point_j" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="exercise_movie_info_ibfk_1" table="exercise_movie_info" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="exercise_record_ibfk_2" table="exercise_record" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="exercise_repeat_numb_ibfk_1" table="exercise_repeat_numb" schema="" catalog="exercise" columns="exercise_numb"/>
+      <exported-key name="rank_ibfk_1" table="rank" schema="" catalog="exercise" columns="exercise_numb"/>
+    </table>
+    <table name="exercise_info_j" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="exercise_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="exercise_info" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kinematic_coefficient" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="exercise_numb"/>
+    </table>
+    <table name="exercise_movie_info" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA=="/>
+      <column name="movie_order" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="64+Z7JiB7IOBIOyInOyEnA=="/>
+      <column name="movie_path" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1" remarks="64+Z7JiB7IOBIOqyveuhnA=="/>
+      <primary-key name="PRIMARY" columns="exercise_numb,movie_order"/>
+      <foreign-key name="exercise_movie_info_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_order" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="numb_set_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="exercise_order" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="routine_list_index,numb_set_index"/>
+      <foreign-key name="exercise_order_ibfk_1" columns="routine_list_index" ref-table="routine_list" ref-schema="" ref-catalog="exercise" ref-columns="routine_list_index" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_point" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOu2gOychCDrsojtmLg=" autoIncrement="true"/>
+      <column name="exercise_point_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7Jq064+ZIOu2gOychCDsnbTrpoQ="/>
+      <primary-key name="PRIMARY" columns="exercise_point_numb"/>
+    </table>
+    <table name="exercise_point_j" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_point_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="exercise_point_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="exercise_point_numb"/>
+    </table>
+    <table name="exercise_record" schema="" catalog="exercise" type="TABLE">
+      <column name="ex_record_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQ67KI7Zi4"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+Z67KI7Zi4"/>
+      <column name="target_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66qp7ZGcIOyatOuPmSDtmp/siJg="/>
+      <column name="clear_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7IiY7ZaJIOyatOuPmSDtmp/siJg="/>
+      <column name="exercise_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="7Jq064+ZIOuCoOynnA=="/>
+      <primary-key name="PRIMARY" columns="ex_record_numb,user_numb,exercise_numb"/>
+      <foreign-key name="exercise_record_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="exercise_record_ibfk_2" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="exercise_repeat_numb" schema="" catalog="exercise" type="TABLE">
+      <column name="numb_set_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Zqf7IiYIOyEpOyglSDsnbjrjbHsiqQ=" autoIncrement="true"/>
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA=="/>
+      <column name="number_of_set" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7IS47Yq4IOyImA=="/>
+      <column name="number_of_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="MeyEuO2KuCDri7kg7Zqf7IiY"/>
+      <primary-key name="PRIMARY" columns="numb_set_index,exercise_numb"/>
+      <foreign-key name="exercise_repeat_numb_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="friends" schema="" catalog="exercise" type="TABLE">
+      <column name="f_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="fuser_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lmc6rWsIO2ajOybkCDrsojtmLg="/>
+      <primary-key name="PRIMARY" columns="f_index,user_numb"/>
+      <foreign-key name="friends_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="kcal" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kcal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kcal_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="user_numb,kcal_date"/>
+      <foreign-key name="kcal_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="pic" schema="" catalog="exercise" type="TABLE">
+      <column name="pic_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7J24642x7Iqk" autoIncrement="true"/>
+      <column name="user_numb" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="pic_path" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7IKs7KeEIOqyveuhnA=="/>
+      <column name="shoot_date" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7LSs7JiBIOuCoOynnA=="/>
+      <primary-key name="PRIMARY" columns="pic_numb,user_numb"/>
+    </table>
+    <table name="rank" schema="" catalog="exercise" type="TABLE">
+      <column name="exercise_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Jq064+ZIOuyiO2YuA=="/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQ67KI7Zi4"/>
+      <column name="rank" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="656t7YK5"/>
+      <primary-key name="PRIMARY" columns="exercise_numb,user_numb"/>
+      <foreign-key name="rank_ibfk_1" columns="exercise_numb" ref-table="exercise_info" ref-schema="" ref-catalog="exercise" ref-columns="exercise_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="rank_ibfk_2" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="routine_info" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66Oo7Yu0IOumrOyKpO2KuCDsnbjrjbHsiqQ=" autoIncrement="true"/>
+      <column name="diffculty" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="64Kc7J2064+E"/>
+      <column name="routine_category" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7Lm07YWM6rOg66as"/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <foreign-key name="routine_info_ibfk_1" columns="routine_list_index" ref-table="routine_list" ref-schema="" ref-catalog="exercise" ref-columns="routine_list_index" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="routine_info_j" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="diffculty" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="routine_category" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <foreign-key name="routine_info_j_ibfk_1" columns="routine_list_index" ref-table="routine_list_j" ref-schema="" ref-catalog="exercise" ref-columns="routine_list_index" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="routine_list" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66Oo7Yu0IOumrOyKpO2KuCDsnbjrjbHsiqQ=" autoIncrement="true"/>
+      <column name="routine_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="66Oo7Yu0IOydtOumhA=="/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <exported-key name="exercise_order_ibfk_1" table="exercise_order" schema="" catalog="exercise" columns="routine_list_index"/>
+      <exported-key name="routine_info_ibfk_1" table="routine_info" schema="" catalog="exercise" columns="routine_list_index"/>
+    </table>
+    <table name="routine_list_j" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="routine_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="routine_list_index"/>
+      <exported-key name="routine_info_j_ibfk_1" table="routine_info_j" schema="" catalog="exercise" columns="routine_list_index"/>
+    </table>
+    <table name="user" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA==" autoIncrement="true"/>
+      <column name="id" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7JWE7J2065SU"/>
+      <column name="password" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" remarks="67mE67CA67KI7Zi4"/>
+      <column name="mail" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="7J2066mU7J28"/>
+      <column name="nick" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="64uJ64Sk7J6E"/>
+      <column name="height" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="7YKk"/>
+      <column name="level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ==" remarks="66CI67Ko"/>
+      <column name="pic" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_numb"/>
+      <exported-key name="board_ibfk_1" table="board" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="challenge_complete_list_ibfk_2" table="challenge_complete_list" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="exercise_record_ibfk_1" table="exercise_record" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="friends_ibfk_1" table="friends" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="kcal_ibfk_1" table="kcal" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="rank_ibfk_2" table="rank" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="user_position_record_ibfk_1" table="user_position_record" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="user_routine_info___fk" table="user_routine_info" schema="" catalog="exercise" columns="user_numb"/>
+      <exported-key name="weight_ibfk_1" table="weight" schema="" catalog="exercise" columns="user_numb"/>
+    </table>
+    <table name="user_position_record" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQIOuyiO2YuA=="/>
+      <column name="position_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7Lm07Jq07Yq4"/>
+      <column name="position_check_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="6riw66GdIOuCoOynnA=="/>
+      <column name="check_point_index" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="position_record_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="position_record_index"/>
+      <foreign-key name="user_position_record___fk" columns="check_point_index" ref-table="check_point" ref-schema="" ref-catalog="exercise" ref-columns="check_point_index" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_position_record_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_position_record___fk" unique="false" columns="check_point_index"/>
+    </table>
+    <table name="user_routine_info" schema="" catalog="exercise" type="TABLE">
+      <column name="routine_list_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="routine_list_index" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="routine_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="routine_list_numb"/>
+      <foreign-key name="user_routine_info___fk" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_routine_info___fk" unique="false" columns="user_numb"/>
+    </table>
+    <table name="weight" schema="" catalog="exercise" type="TABLE">
+      <column name="user_numb" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="7ZqM7JuQ67KI7Zi4"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" remarks="6riw66GdIOuCoOynnA=="/>
+      <column name="weight" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="66q466y06rKM"/>
+      <primary-key name="PRIMARY" columns="user_numb,date"/>
+      <foreign-key name="weight_ibfk_1" columns="user_numb" ref-table="user" ref-schema="" ref-catalog="exercise" ref-columns="user_numb" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
+</component>

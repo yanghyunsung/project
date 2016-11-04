@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - exercise@localhost" uuid="8c475397-0d65-4f5e-9629-6f0d5271cbfa">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>exercise.*</schema-pattern>
+      <default-schemas>exercise.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - exercise@jycom.asuscomm.com" uuid="66dd644f-aada-41ef-aca3-da09b5cec581">
+      <secret-storage>master_key</secret-storage>
+      <user-name>exercise</user-name>
+      <schema-pattern>exercise.*</schema-pattern>
+      <default-schemas>exercise.*</default-schemas>
+    </data-source>
+  </component>
+</project>

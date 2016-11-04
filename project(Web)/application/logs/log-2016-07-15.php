@@ -1,0 +1,30 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2016-07-15 04:11:19 --> 404 Page Not Found: Faviconico/index
+ERROR - 2016-07-15 04:11:19 --> 404 Page Not Found: Faviconico/index
+ERROR - 2016-07-15 04:11:19 --> 404 Page Not Found: Faviconico/index
+ERROR - 2016-07-15 04:11:19 --> 404 Page Not Found: Faviconico/index
+ERROR - 2016-07-15 04:11:20 --> 404 Page Not Found: Faviconico/index
+ERROR - 2016-07-15 04:11:20 --> 404 Page Not Found: Faviconico/index
+ERROR - 2016-07-15 04:20:58 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 04:21:08 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 06:21:09 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 06:21:19 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 08:21:20 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 08:21:30 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 10:21:32 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 10:21:42 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 11:23:02 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 11:23:12 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 13:23:13 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 13:23:23 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 15:23:24 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 15:23:34 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 17:23:35 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 17:23:45 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 19:23:46 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 19:23:56 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 21:23:57 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 21:24:07 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 23:24:08 --> 404 Page Not Found: Cpas/index
+ERROR - 2016-07-15 23:24:18 --> 404 Page Not Found: Cpas/index
